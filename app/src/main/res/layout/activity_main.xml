@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_700"
     tools:context=".MainActivity">
 
     <EditText
@@ -16,6 +17,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edt_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@color/white"
         android:hint="Informe seu E-mail"/>
 
     <EditText
@@ -29,6 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+        android:textColorHint="@color/white"
         android:hint="Informe sua senha"/>
 
     <Button
