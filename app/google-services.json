@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "506917443444",
+    "firebase_url": "https://controle-de-ponto-d9662-default-rtdb.firebaseio.com",
+    "project_id": "controle-de-ponto-d9662",
+    "storage_bucket": "controle-de-ponto-d9662.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506917443444:android:e080b1eab965cda3ff3e21",
+        "android_client_info": {
+          "package_name": "com.valois.controledeponto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506917443444-hrp3evuhbv1k3v3cbb1376k9lgvu7rf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4WnPUod_A3jl9fZXFyAiK5G_JaNbShFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506917443444-hrp3evuhbv1k3v3cbb1376k9lgvu7rf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
