@@ -12,19 +12,21 @@
         android:id="@+id/edt_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black"
         android:ems="10"
+        android:hint="  Nome"
         android:inputType="textPersonName"
-        android:hint="Nome"
-        android:textColorHint="@color/white"/>
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/edt_email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:ems="10"
+        android:hint="  E-mail"
         android:inputType="textEmailAddress"
-        android:hint="E-mail"
-        android:textColorHint="@color/white"/>
+        android:textColorHint="@color/white"
+        android:background="@color/black"/>
 
     <EditText
         android:id="@+id/edt_senha"
@@ -32,8 +34,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberPassword"
-        android:hint="Senha"
-        android:textColorHint="@color/white"/>
+        android:hint="  Senha"
+        android:textColorHint="@color/white"
+        android:background="@color/black"/>
 
     <TextView
         android:id="@+id/txt_usuario_cadastrados"
@@ -51,6 +54,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
-        android:background="@color/cor_texto_btn"/>
+        android:background="@color/cor_texto_btn" />
 </LinearLayout>
 
