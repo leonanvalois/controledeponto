@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/acception"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".GerenciaUsuariosActivity">
 
     <EditText
         android:id="@+id/edt_nome"
@@ -51,6 +51,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="40dp"
-        android:background="@color/white"/>
+        android:background="@color/cor_texto_btn"/>
 </LinearLayout>
 
