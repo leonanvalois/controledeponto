@@ -11,6 +11,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.valois.controledeponto.Utils.Conexao;
 
 public class Activity_tela_login extends AppCompatActivity {
@@ -48,8 +50,6 @@ public class Activity_tela_login extends AppCompatActivity {
         btn_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(Activity_tela_login.this, GerenciaUsuariosActivity.class);
-                //startActivity(i);
                 autenticaUsuario();
             }
         });
@@ -67,10 +67,10 @@ public class Activity_tela_login extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Intent i = new Intent(Activity_tela_login.this, ActivityHome.class);
+                        Intent i = new Intent(Activity_tela_login.this, GerenciaUsuariosActivity.class);
                         startActivity(i);
-                    } else {
-                        alert(task.getResult().toString());
+                    } else if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        alert("Erro ao cadastrar o usuário");
                     }
                 }
             });

@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -107,7 +108,6 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
                     Usuario u = objSnapshot.getValue(Usuario.class);
                     listUsuario.add(u);
                 }
-
                 arrayAdapterUsuario = new ArrayAdapter<Usuario>(GerenciaUsuariosActivity.this, android.R.layout.simple_list_item_1, listUsuario);
                 list_usuarios.setAdapter(arrayAdapterUsuario);
             }
@@ -142,16 +142,17 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
                 if (edt_email.getText().toString().isEmpty() ) {
                     alert("Preencha os campos ou seleciona um usuário para editar.");
                 } else {
-                    Usuario uAtualiza = new Usuario();
+                    Usuario usuario = new Usuario();
+                    usuario.setNome(edt_nome.getText().toString().trim());
+                    usuario.setEmail(edt_email.getText().toString().trim());
+                    usuario.setSenha(edt_senha.getText().toString().trim());
                     if (usuarioSelecionado == null){
-                        uAtualiza.setUid(UUID.randomUUID().toString());
+                        usuario.setUid(UUID.randomUUID().toString());
+                        criarUsuario(usuario.getEmail(), usuario.getSenha());
                     } else  {
-                        uAtualiza.setUid(usuarioSelecionado.getUid());
+                        usuario.setUid(usuarioSelecionado.getUid());
                     }
-                    uAtualiza.setNome(edt_nome.getText().toString().trim());
-                    uAtualiza.setEmail(edt_email.getText().toString().trim());
-                    uAtualiza.setSenha(edt_senha.getText().toString().trim());
-                    databaseReference.child(no_principal).child(uAtualiza.getUid()).setValue(uAtualiza);
+                    databaseReference.child(no_principal).child(usuario.getUid()).setValue(usuario);
                     limparCampos();
                 }
                 break;
@@ -192,8 +193,8 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
                     Intent i = new Intent(getApplicationContext(), Activity_tela_login.class);
                     startActivity(i);
                     finish();
-                } else {
-                    alert(task.getResult().toString());
+                } else if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                    alert("Erro ao cadastrar o usuário");
                 }
             }
         });
