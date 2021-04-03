@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F35725"
     android:visibility="visible"
-    tools:context=".Activity_tela_login">
+    tools:context=".ActivityLogin">
 
     <TextView
         android:id="@+id/txt_login_recuperar_senha"
@@ -33,26 +33,34 @@
 
     <EditText
         android:id="@+id/edt_login_senha"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginBottom="10dp"
         android:hint="@string/str_senha"
+        android:drawableRight="@drawable/ic_key"
         android:textColorHint="@color/white"
         android:inputType="numberPassword"
+        android:textColor="@color/white"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_login_entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edt_login_email"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="E-mail"
+        android:textColor="@color/white"
+        android:drawableRight="@drawable/ic_email"
         android:layout_marginBottom="10dp"
         android:textColorHint="@color/white"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
         app:layout_constraintBottom_toTopOf="@+id/edt_login_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
