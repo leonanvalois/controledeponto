@@ -3,4 +3,6 @@
     <string name="str_email" translatable="false">Email</string>
     <string name="str_senha" translatable="false">Senha</string>
     <string name="txt_esqueci_minha_senha">Esqueci minha senha</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
