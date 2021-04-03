@@ -3,21 +3,32 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthEmailException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.valois.controledeponto.Utils.Conexao;
+import com.valois.controledeponto.Utils.Global;
+import com.valois.controledeponto.modelo.Usuario;
 
-public class Activity_tela_login extends AppCompatActivity {
+public class ActivityLogin extends AppCompatActivity {
 
     FirebaseAuth auth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    String no_principal = "Usuario";
+
     EditText edt_email, edt_senha;
     Button btn_entrar;
 
@@ -30,6 +41,8 @@ public class Activity_tela_login extends AppCompatActivity {
         inicilizarComponentes();
         //responsável pelos eventos de click dos botões
         eventos();
+        //Inicializa a base de dados no firebase
+        inicializarFirebaseBD();
     }
 
     @Override
@@ -63,11 +76,12 @@ public class Activity_tela_login extends AppCompatActivity {
         } else {
             String email = edt_email.getText().toString().trim();
             String senha = edt_senha.getText().toString().trim();
-            auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(Activity_tela_login.this, new OnCompleteListener<AuthResult>() {
+            auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(ActivityLogin.this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Intent i = new Intent(Activity_tela_login.this, GerenciaUsuariosActivity.class);
+                        carregarUsuarioExistente(auth.getCurrentUser());
+                        Intent i = new Intent(ActivityLogin.this, ActivityHome.class);
                         startActivity(i);
                     } else if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                         alert("Erro ao cadastrar o usuário");
@@ -77,7 +91,20 @@ public class Activity_tela_login extends AppCompatActivity {
         }
     }
 
+    private void carregarUsuarioExistente(FirebaseUser user){
+        Global.uid_usuario = user.getUid();
+    }
+
+    private void inicializarFirebaseBD() {
+        FirebaseApp.initializeApp(ActivityLogin.this);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        //TODO ESTUDAR A DOCUMENTAÇÃO DESSA FUNCIONALIDADE
+        firebaseDatabase.setPersistenceEnabled(true);
+        databaseReference = firebaseDatabase.getReference();
+
+    }
+
     private void alert(String s) {
-        Toast.makeText(Activity_tela_login.this,s,Toast.LENGTH_LONG).show();
+        Toast.makeText(ActivityLogin.this,s,Toast.LENGTH_LONG).show();
     }
 }

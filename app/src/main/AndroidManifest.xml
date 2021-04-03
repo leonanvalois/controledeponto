@@ -12,17 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ControleDePonto">
-        <activity android:name=".Activity_tela_login">
+        <activity android:name=".ActivityLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".ActivityHome"></activity>
-        <activity android:name=".GerenciaUsuariosActivity" android:parentActivityName=".Activity_tela_login">
+        <activity android:name=".GerenciaUsuariosActivity" android:parentActivityName=".ActivityHome">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.valois.controledeponto.Activity_tela_login" />
+                android:value="com.valois.controledeponto.ActivityHome" />
         </activity>
 
     </application>
