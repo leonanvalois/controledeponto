@@ -1,4 +1,4 @@
-package com.valois.controledeponto.Utils;
+package com.valois.controledeponto.utils;
 
 public class Global {
     /**NÓS FIREBASE**/
