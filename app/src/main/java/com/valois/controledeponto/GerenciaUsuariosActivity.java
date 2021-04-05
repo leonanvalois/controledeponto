@@ -87,12 +87,12 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
         super.onBackPressed();
     }
     /**CRIA O MENU DA ACTION BAR**/
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_gerencia_usuarios, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    /**CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR**/
+    *//**CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR**//*
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -155,7 +155,8 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
                 break;
         }
         return true;
-    }
+    }*/
+
     /**INICIALIZA A CONEXÃO COM A DATABASE**/
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(GerenciaUsuariosActivity.this);
