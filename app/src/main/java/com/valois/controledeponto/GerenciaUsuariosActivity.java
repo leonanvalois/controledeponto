@@ -26,9 +26,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.valois.controledeponto.Utils.Conexao;
-import com.valois.controledeponto.Utils.Global;
 import com.valois.controledeponto.modelo.Usuario;
+import com.valois.controledeponto.utils.Conexao;
+import com.valois.controledeponto.utils.Global;
 
 import java.util.ArrayList;
 import java.util.List;
