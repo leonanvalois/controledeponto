@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/menu_salvar"
+        android:title="Salvar informações"
+        android:icon="@drawable/ic_save"
+        app:showAsAction="always"
+        android:tooltipText="Salvar ou atualizar"/>
+
+
+    <item android:id="@+id/menu_excluir"
+        android:title="Excluir"
+        android:icon="@drawable/ic_delete_"
+        app:showAsAction="always"
+        android:tooltipText="Excluir usuário"/>
+
+
+
+    <item android:id="@+id/menu_sair"
+        android:title="Sair"
+        android:icon="@drawable/ic_exit"
+        app:showAsAction="always"
+        android:tooltipText="Atualizar"/>
+
+
+</menu>

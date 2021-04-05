@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -87,18 +88,18 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
         super.onBackPressed();
     }
     /**CRIA O MENU DA ACTION BAR**/
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_gerencia_usuarios, menu);
+        getMenuInflater().inflate(R.menu.menu_crud, menu);
         return super.onCreateOptionsMenu(menu);
     }
-    *//**CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR**//*
+    /**CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR**/
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.menu_atualizar_salvar:
+            case R.id.menu_salvar:
                 String email = edt_email.getText().toString().trim();
                 String senha = edt_senha.getText().toString().trim();
                 String nome = edt_nome.getText().toString().trim();
@@ -132,7 +133,7 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
                 }
                 break;
 
-            case R.id.menu_apagar:
+            case R.id.menu_excluir:
                 if (edt_email.getText().toString().isEmpty()) {
                     alert("Não há nada pra apagar");
                 } else {
@@ -153,9 +154,15 @@ public class GerenciaUsuariosActivity extends AppCompatActivity {
                             .show();
                 }
                 break;
+
+            case R.id.menu_sair:
+                Intent i = new Intent(GerenciaUsuariosActivity.this, ActivityHome.class);
+                startActivity(i);
+                finish();
+                break;
         }
         return true;
-    }*/
+    }
 
     /**INICIALIZA A CONEXÃO COM A DATABASE**/
     private void inicializarFirebase() {

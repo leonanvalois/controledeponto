@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,14 +38,11 @@ public class ActivityHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         alert(Global.uid_usuario);
         inicializarComponentes();
         carregarDados();
         eventos();
     }
-
-
 
     /**INICIALIZA TODOS OS COMPONENTES VISUAIS DA TELA**/
     private void inicializarComponentes() {
@@ -94,6 +92,7 @@ public class ActivityHome extends AppCompatActivity {
             case R.id.menu_gerencia_usuarios:
                 Intent i = new Intent(ActivityHome.this, GerenciaUsuariosActivity.class);
                 startActivity(i);
+                finish();
                 break;
             case R.id.menu_sair:
                 System.exit(0);
