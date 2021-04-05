@@ -10,7 +10,10 @@ import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -62,7 +65,7 @@ public class ActivityHome extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usuarioLogado = snapshot.getValue(Usuario.class);
-                setTitle("Bem Vindo \n" + usuarioLogado.getNome() + "!");
+                setTitle("Bem Vindo " + usuarioLogado.getNome() + " !");
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
