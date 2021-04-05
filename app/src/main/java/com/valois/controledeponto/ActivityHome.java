@@ -32,15 +32,14 @@ import com.valois.controledeponto.modelo.Usuario;
 public class ActivityHome extends AppCompatActivity {
 
     Usuario usuarioLogado;
-    DrawerLayout drawerLayout;
-    ImageView menu;
-    NavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //alert(Global.uid_usuario);
+
+        alert(Global.uid_usuario);
         inicializarComponentes();
         carregarDados();
         eventos();
@@ -50,32 +49,11 @@ public class ActivityHome extends AppCompatActivity {
 
     /**INICIALIZA TODOS OS COMPONENTES VISUAIS DA TELA**/
     private void inicializarComponentes() {
-        drawerLayout = findViewById(R.id.drawerLayout);
-        menu = findViewById(R.id.imageMenu);
-        navigationView = findViewById(R.id.navigationView);
-        navigationView.setItemIconTintList(null);
 
-        NavController navController = Navigation.findNavController(this,R.id.nav_host_fragment);
-
-        NavigationUI.setupWithNavController(navigationView, navController);
-
-        final TextView textTitle = findViewById(R.id.txt_title);
-
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                textTitle.setText(destination.getLabel());
-            }
-        });
     }
 
     private void eventos() {
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
+
     }
 
     /**CARREGA AS INFORMAÇÕES RECUPERADAS DA DATABASE**/
@@ -88,8 +66,8 @@ public class ActivityHome extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usuarioLogado = snapshot.getValue(Usuario.class);
+                setTitle("Bem Vindo \n" + usuarioLogado.getNome() + "!");
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -98,7 +76,7 @@ public class ActivityHome extends AppCompatActivity {
     }
 
     /**CRIA O MENU DA ACTION BAR**/
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (usuarioLogado.isAdmin()) {
             getMenuInflater().inflate(R.menu.menu_activity_home_admin, menu);
@@ -106,10 +84,10 @@ public class ActivityHome extends AppCompatActivity {
             getMenuInflater().inflate(R.menu.menu_activity_home, menu);
         }
         return super.onCreateOptionsMenu(menu);
-    }*/
+    }
 
     /**CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR**/
-    /*@Override
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
@@ -124,7 +102,7 @@ public class ActivityHome extends AppCompatActivity {
         }
 
         return true;
-    }*/
+    }
 
     /**CRIA UM ALERTA DO TIPO TOAST**/
     private void alert(String s) {
