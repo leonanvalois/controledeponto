@@ -26,9 +26,9 @@
             <ImageView
                 android:id="@+id/img_01"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="4dp"
                 android:visibility="visible"
-                android:background="@color/acception"/>
+                android:background="@color/cor_marcadores"/>
 
             <Button
                 android:id="@+id/btn_home"
@@ -53,13 +53,14 @@
             <ImageView
                 android:id="@+id/img_02"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:visibility="gone"
-                android:background="@color/acception"/>
+                android:layout_height="4dp"
+                android:background="@color/cor_marcadores"
+                android:visibility="gone" />
+
             <Button
                 android:id="@+id/btn_marcar_ponto"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_add_time"
@@ -78,9 +79,9 @@
             <ImageView
                 android:id="@+id/img_03"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="4dp"
                 android:visibility="gone"
-                android:background="@color/acception"/>
+                android:background="@color/cor_marcadores"/>
 
             <Button
                 android:id="@+id/btn_espelho"
@@ -106,9 +107,9 @@
             <ImageView
                 android:id="@+id/img_04"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="4dp"
                 android:visibility="gone"
-                android:background="@color/acception"/>
+                android:background="@color/cor_marcadores"/>
 
             <Button
                 android:id="@+id/btn_admin"
