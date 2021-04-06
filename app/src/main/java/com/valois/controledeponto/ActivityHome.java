@@ -1,26 +1,17 @@
 package com.valois.controledeponto;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +24,8 @@ public class ActivityHome extends AppCompatActivity {
 
     Usuario usuarioLogado;
 
+    Button btn_home, btn_add_ponto, btn_historico, btn_gerenciar;
+    ImageView img01, img02,img03,img04;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +35,71 @@ public class ActivityHome extends AppCompatActivity {
         inicializarComponentes();
         carregarDados();
         eventos();
+
+
     }
 
-    /**INICIALIZA TODOS OS COMPONENTES VISUAIS DA TELA**/
+    /**
+     * INICIALIZA TODOS OS COMPONENTES VISUAIS DA TELA
+     **/
     private void inicializarComponentes() {
+        btn_home = findViewById(R.id.btn_home);
+        btn_add_ponto = findViewById(R.id.btn_marcar_ponto);
+        btn_historico = findViewById(R.id.btn_espelho);
+        btn_gerenciar = findViewById(R.id.btn_admin);
 
+        img01 = findViewById(R.id.img_01);
+        img02 = findViewById(R.id.img_02);
+        img03 = findViewById(R.id.img_03);
+        img04 = findViewById(R.id.img_04);
     }
 
     private void eventos() {
+        btn_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img01.setVisibility(View.VISIBLE);
+                img02.setVisibility(View.GONE);
+                img03.setVisibility(View.GONE);
+                img04.setVisibility(View.GONE);
+                //alert("teste");
+            }
+        });
 
+        btn_add_ponto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img01.setVisibility(View.GONE);
+                img02.setVisibility(View.VISIBLE);
+                img03.setVisibility(View.GONE);
+                img04.setVisibility(View.GONE);
+            }
+        });
+
+        btn_historico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img01.setVisibility(View.GONE);
+                img02.setVisibility(View.GONE);
+                img03.setVisibility(View.VISIBLE);
+                img04.setVisibility(View.GONE);
+            }
+        });
+
+        btn_gerenciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                img01.setVisibility(View.GONE);
+                img02.setVisibility(View.GONE);
+                img03.setVisibility(View.GONE);
+                img04.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
-    /**CARREGA AS INFORMAÇÕES RECUPERADAS DA DATABASE**/
+    /**
+     * CARREGA AS INFORMAÇÕES RECUPERADAS DA DATABASE
+     **/
     private void carregarDados() {
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -65,6 +111,7 @@ public class ActivityHome extends AppCompatActivity {
                 usuarioLogado = snapshot.getValue(Usuario.class);
                 setTitle("Bem Vindo " + usuarioLogado.getNome() + " !");
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -72,7 +119,9 @@ public class ActivityHome extends AppCompatActivity {
         });
     }
 
-    /**CRIA O MENU DA ACTION BAR**/
+    /**
+     * CRIA O MENU DA ACTION BAR
+     **/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (usuarioLogado.isAdmin()) {
@@ -83,7 +132,9 @@ public class ActivityHome extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    /**CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR**/
+    /**
+     * CONTROLA OS EVENTOS DOS BOTÕES DA ACTION BAR
+     **/
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -102,7 +153,9 @@ public class ActivityHome extends AppCompatActivity {
         return true;
     }
 
-    /**CRIA UM ALERTA DO TIPO TOAST**/
+    /**
+     * CRIA UM ALERTA DO TIPO TOAST
+     **/
     private void alert(String s) {
         Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
     }
