@@ -14,6 +14,7 @@
     <color name="cor_texto_btn">#FF5722</color>
     <color name="acception">#FF5722</color>
     <color name="fundo_botão">#CFC9C4</color>
+    <color name="fundo_telas">#FFFB7950</color>
 
 
 </resources>
