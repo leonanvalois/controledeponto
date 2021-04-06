@@ -5,4 +5,8 @@
     <string name="txt_esqueci_minha_senha">Esqueci minha senha</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registrar_ponto">Registrar Ponto</string>
+    <string name="espelho_de_ponto">Espelho de ponto</string>
+    <string name="hist_rico_di_rio">Histórico diário</string>
+    <string name="comunicar_ausencia">Comunicar ausência</string>
 </resources>

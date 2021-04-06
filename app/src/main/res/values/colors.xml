@@ -12,7 +12,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="cor_texto_btn">#FF5722</color>
-    <color name="acception">#F68C2F</color>
+    <color name="acception">#FF5722</color>
+    <color name="fundo_botão">#CFC9C4</color>
 
 
 </resources>
