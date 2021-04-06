@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/fundo_telas"
     android:orientation="vertical"
     tools:context=".ActivityHome">
 
@@ -35,8 +35,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_add_time"
-                android:text="Home" />
+                android:drawableTint="@color/fundo_telas"
+                android:text="Home"
+                android:textColor="@color/fundo_telas"/>
 
         </LinearLayout>
 
@@ -58,8 +61,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_add_time"
-                android:text="R. Ponto" />
+                android:drawableTint="@color/fundo_telas"
+                android:text="R. Ponto"
+                android:textColor="@color/fundo_telas"/>
         </LinearLayout>
 
 
@@ -81,8 +87,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_root"
-                android:text="Historico" />
+                android:drawableTint="@color/fundo_telas"
+                android:text="Historico"
+                android:textColor="@color/fundo_telas"/>
 
 
         </LinearLayout>
@@ -106,8 +115,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="@color/white"
                 android:drawableTop="@drawable/ic_supervised_user"
-                android:text="Gerenciar" />
+                android:drawableTint="@color/fundo_telas"
+                android:text="Gerenciar"
+                android:textColor="@color/fundo_telas"/>
 
         </LinearLayout>
 
